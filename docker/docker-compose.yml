@@ -1,0 +1,89 @@
+version: "3.7"
+services:
+
+  # mqtt5 eclipse-mosquitto
+  mqtt5:
+    image: eclipse-mosquitto
+    container_name: mqtt5
+    ports:
+      - "1883:1883" #default mqtt port
+      - "9001:9001" #default mqtt port for websockets
+    volumes:
+      - ./broker-config:/mosquitto/config:rw
+      - ./broker-data:/mosquitto/data:rw
+      - ./broker-log:/mosquitto/log:rw
+    networks:
+      - mqtt5-network
+
+  # InfluxDB
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    ports:
+      - "8086:8086" # InfluxDB API port
+    environment:
+      - INFLUXDB_DB=homer_bucket
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=admin_password
+    volumes:
+      - ./influxdb/data:/var/lib/influxdb:rw
+    networks:
+      - mqtt5-network
+
+  # Postgresql
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: user 
+      POSTGRES_PASSWORD: postgres_password 
+      POSTGRES_DB: smarthomedb
+      PGDATA: /data/postgres
+    volumes:
+       - ./postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres-network
+  
+  # Postgresql Admin
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin_password 
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:5050"
+    networks:
+      - postgres-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "6969:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ../homer-back/src/main/resources/images:/usr/share/nginx/html/img
+    restart: always
+
+# volumes for mapping data,config and log
+volumes:
+  config:
+  data:
+  log:
+  influxdb:
+  postgres:
+  pgadmin:
+
+networks:
+  mqtt5-network:
+    name: mqtt5-network
+  postgres-network:
+    name: postgres-network
+
+

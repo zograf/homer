@@ -1,0 +1,91 @@
+.left-eye {
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: absolute;
+  top: var(--left-start-top);
+  left: var(--left-start-left);
+  transform: translate(-50%, -50%); /* Center the circle */
+}
+
+.right-eye {
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: absolute;
+  top: var(--right-start-top);
+  left: var(--right-start-left);
+  transform: translate(-50%, -50%); /* Center the circle */
+}
+
+@keyframes rightAnimation {
+  0% {
+    top: var(--right-start-top);
+    left: var(--right-start-left);
+  }
+  100% {
+    top: var(--right-end-top);
+    left: var(--right-end-left);
+  }
+}
+
+@keyframes leftAnimation {
+  0% {
+    top: var(--left-start-top);
+    left: var(--left-start-left);
+  }
+  100% {
+    top: var(--left-end-top);
+    left: var(--left-end-left);
+  }
+}
+
+@keyframes rightReverseAnimation {
+  0% {
+    top: var(--right-end-top);
+    left: var(--right-end-left);
+  }
+  100% {
+    top: var(--right-start-top);
+    left: var(--right-start-left);
+  }
+}
+
+@keyframes leftReverseAnimation {
+  0% {
+    top: var(--left-end-top);
+    left: var(--left-end-left);
+  }
+  100% {
+    top: var(--left-start-top);
+    left: var(--left-start-left);
+  }
+}
+
+.rightReverseA {
+  animation: rightReverseAnimation 0.5s ease-in-out forwards;
+}
+
+.leftReverseA {
+  animation: leftReverseAnimation 0.5s ease-in-out forwards;
+}
+
+.rightA {
+  animation: rightAnimation 1s ease-in-out forwards;
+}
+
+.leftA {
+  animation: leftAnimation 1s ease-in-out forwards;
+}
+
+.register-link {
+  text-decoration: none;
+  margin-left: 5px;
+  color: black;
+}
+
+.register-link:hover {
+  color: var(--primary-light);
+}

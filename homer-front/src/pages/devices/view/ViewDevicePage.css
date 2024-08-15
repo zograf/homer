@@ -1,0 +1,5 @@
+.default-card {
+    display: flex;
+    gap: 8px;
+    max-height: 200px;
+}

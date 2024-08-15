@@ -1,0 +1,23 @@
+.property-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.property-img-wrapper {
+    border-radius: var(--inner-card-radius);
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.p-img-large {
+    height: 183px;
+}
+.p-img-small {
+    height: 204px;
+}
+.dashed-container {
+    height: 183px;
+    min-width: 260px;
+    border-radius: var(--card-radius);
+    border: rgb(var(--neutral)) 2px dashed;
+    padding: 24px;
+}

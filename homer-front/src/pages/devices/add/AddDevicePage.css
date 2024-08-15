@@ -1,0 +1,17 @@
+.main {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-bottom: 32px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: clamp(380px, 33%, 580px) auto;
+}
+.select-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--inner-card-radius);
+    cursor: pointer;
+}

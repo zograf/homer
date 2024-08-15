@@ -1,0 +1,39 @@
+.circle-button-tile-container {
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(var(--surface));
+    user-select: none;
+    transition: all 0.08s ease-in-out;
+}
+.circle-button-tile-container:hover {
+    background-color: rgb(var(--primary-light));
+    color: rgb(var(--on-primary-light));
+}
+.circle-button-tooltip {
+    position: absolute;
+    top: 0;
+    left: 4px;
+    margin: 0 0 0 56px;
+    font-size: 1.05em;
+    white-space: nowrap;
+    background: rgb(var(--primary-light));
+    color: rgb(var(--on-primary-light));
+    padding: 5px 12px;
+    border-radius: 16px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s cubic-bezier(0.48, -0.45, 0.265, 0.55);
+}
+.circle-button-tile-container:hover .circle-button-tooltip {
+    left: -3px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}

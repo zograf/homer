@@ -1,0 +1,9 @@
+.login-card {
+    height: 100vh;
+}
+
+.body {
+    background-image: url("../../backgrounds/small-noeyes.jpg");
+    background-position: 45% 0;
+}
+

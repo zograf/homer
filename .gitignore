@@ -1,0 +1,8 @@
+docker/influxdb
+docker/broker-config
+docker/broker-data
+docker/broker-log
+docker/postgres
+homer-data/settings.json
+homer-data/__pycache__/
+homer-data/__pycache__/*

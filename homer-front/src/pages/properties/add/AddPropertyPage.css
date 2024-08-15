@@ -1,0 +1,41 @@
+.main {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-bottom: 32px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: clamp(380px, 33%, 580px) auto;
+}
+.select-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--inner-card-radius);
+    cursor: pointer;
+}
+.map-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+.leaflet-container {
+    height: 100%;
+    position: relative;
+}
+.leaflet-top {
+    display: none;
+}
+.leaflet-bottom {
+    display: none;
+}
+.map-label {
+    background-color: rgba(var(--background), 0.5);
+    backdrop-filter: blur(3px);
+    width: 100%;
+    padding: 4px 12px 10px 12px;
+    z-index: 1;
+    position: absolute;
+    bottom: -4px;
+}

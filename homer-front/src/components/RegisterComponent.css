@@ -1,0 +1,9 @@
+.login-link {
+  text-decoration: none;
+  margin-left: 5px;
+  color: black;
+}
+
+.login-link:hover {
+  color: var(--primary-light);
+}

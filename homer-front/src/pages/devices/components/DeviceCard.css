@@ -1,0 +1,25 @@
+.device-wrapper {
+    display: flex;
+    gap: 8px;
+    height: 148px;
+}
+.device-img-wrapper {
+    border-radius: var(--inner-card-radius);
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.img-large {
+    height: 183px;
+}
+.device-img {
+    height: 120px;
+}
+.dashed-container {
+    height: 183px;
+    min-width: 260px;
+    border-radius: var(--card-radius);
+    border: rgb(var(--neutral)) 2px dashed;
+    padding: 24px;
+}
+
